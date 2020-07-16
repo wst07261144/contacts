@@ -17,6 +17,7 @@
 /yarn-error.log
 /test
 /log
+/tmp
 
 .idea
 .generators
