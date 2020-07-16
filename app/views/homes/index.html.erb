@@ -1,0 +1,42 @@
+<div class="container">
+  <h1>合同生成器</h1>
+  <%= form_tag('/homes/gen_contacts') do -%>
+    <div class="form-group">
+      <label for="exampleInputEmail1">年份</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" placeholder="请输入年份后两位" name="year">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">月份</label>
+      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="请输入月份" name="month">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile">日期</label>
+      <input type="number" class="form-control"  id="exampleInputFile" name="day">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputFile">供应商</label>
+      <input type="text"  class="form-control"  id="exampleInputFile" name="providor">
+    </div>
+    <button class="btn btn-primary" id="gen_contact">生成合同</button>
+  <% end -%>
+</div>
+<script >
+    var Contact = function () {
+        return {
+            init_event: function () {
+                $('#gen_contact').click(function (el) {
+                    $.ajax({
+                        url: '/homes/gen_contacts',
+                        type: 'get',
+                        data: $('form').serialize(),
+                        success: function () {
+                        },
+                        error: function () {
+                        }
+                    });
+                });
+            },
+        }
+    }();
+    Contact.init_event();
+</script>
